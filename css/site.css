@@ -1,0 +1,90 @@
+/* Custom styles for Martha's Art website */
+
+/* Gallery image styles */
+.gallery-image-link {
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+    transition: transform 0.3s ease;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.gallery-image-link:hover {
+    transform: scale(1.05);
+}
+
+.gallery-image-link:focus {
+    outline: 2px solid #007bff; /* Accessibility: visible focus indicator */
+    outline-offset: 2px;
+}
+
+.gallery-image {
+    max-width: 200px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Improve page load performance with content-visibility */
+.container {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 5000px; /* Approximate size reservation */
+}
+
+/* Accessibility improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Print styles */
+@media print {
+    .gallery-image {
+        max-width: 150px;
+        box-shadow: none;
+        print-color-adjust: exact;
+    }
+    
+    #nav-placeholder, 
+    .navbar {
+        display: none !important;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-image {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-image-link {
+        margin: 5px;
+    }
+    
+    .gallery-image {
+        max-width: 120px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body.dark-mode-support {
+        background-color: #121212;
+        color: #f0f0f0;
+    }
+    
+    body.dark-mode-support .gallery-image {
+        border-color: #444;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+}
